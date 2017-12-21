@@ -63,45 +63,42 @@ def loadVggModel(path, image):
     graph['maxpool5'] = tf.nn.max_pool(graph['conv5_4'], ksize=[1, 2, 2, 1], strides=[1, 2, 2, 1], padding='SAME')
     return graph
 
-def generateNoiseImage(contentImage, noiseRatio = 0.6):
-    noiseImage = np.random.uniform(-20, 20, (1, contentImage.shape[1], contentImage.shape[2], contentImage.shape[3])).astype('float32')
-    return noiseImage * noiseRatio + contentImage * (1 - noiseRatio)
+def generateNoiseImage(contentImage, noiseRatio = 0.6): return np.random.uniform(-20, 20, (1, contentImage.shape[1], contentImage.shape[2], contentImage.shape[3])).astype('float32') * noiseRatio + contentImage * (1 - noiseRatio)
 
 def computeContentCost(model, contentLayers, loss = 0):
-    for layer, weight in contentLayers:
-        loss += weight * computeContentLayerCost(sess.run(model[layer]), model[layer])
+    for layer, weight in contentLayers: loss += weight * computeContentLayerCost(sess.run(model[layer]), model[layer])
     return loss
 
 def computeContentLayerCost(aC, aG):
     _, nH, nW, nC = aG.get_shape().as_list()
     return (1 / (4 * nH * nW * nC)) * tf.reduce_sum(tf.square(tf.subtract(aC, aG)))
 
-def gramMatrix(l, k, shift = -1.):
-    return tf.matmul(tf.add(l, tf.constant(shift)), tf.transpose(tf.add(k, tf.constant(shift)), perm=[1, 0]))
+def gramMatrix(l, k, shift = -1.): return tf.matmul(tf.add(l, tf.constant(shift)), tf.transpose(tf.add(k, tf.constant(shift)), perm=[1, 0]))
 
-def computeStyleLayerCost(l, model, layers, loss = 0):
+def computeStyleLayerCost(l, model, layers, loss = 0, blur = True, l2kWeight = 0.25, l2lWeight = 0.75):
     gL = tf.stack(model[layers[l][0]])
-    gK = tf.stack(model[layers[l - 1][0]])
     sL = tf.stack(sess.run(model[layers[l][0]]))
-    sK = tf.stack(sess.run(model[layers[l - 1][0]]))
     _, lH, lW, lC = gL.get_shape().as_list()
-    sK = tf.transpose(tf.image.resize_images(tf.transpose(sK, perm = [0, 3, 2, 1]), [lC, lW]), perm = [0, 3, 2, 1]) if tf.transpose(sL, perm = [0, 3, 2, 1]).shape != tf.transpose(sK, perm = [0, 3, 2, 1]).shape else sK
-    gK = tf.transpose(tf.image.resize_images(tf.transpose(gK, perm = [0, 3, 2, 1]), [lC, lW]), perm = [0, 3, 2, 1]) if tf.transpose(gL, perm = [0, 3, 2, 1]).shape != tf.transpose(gK, perm = [0, 3, 2, 1]).shape else gK
-    sK = tf.image.resize_images(sK, [lH, lW]) if sL.shape != sK.shape else sK
-    gK = tf.image.resize_images(gK, [lH, lW]) if gL.shape != gK.shape else gK
-    sK = tf.stack(gaussian_filter(sK.eval(), sigma = 0.5))
-    gK = tf.stack(gaussian_filter(gK.eval(), sigma = 0.5))
-    l2kWeight = 0.25
-    l2lWeight = 0.75
-    GS = tf.add(tf.multiply(gramMatrix(tf.transpose(tf.reshape(sL, [lH * lW, lC])), tf.transpose(tf.reshape(sK, [lH * lW, lC]))), l2kWeight), tf.multiply(gramMatrix(tf.transpose(tf.reshape(sL, [lH * lW, lC])), tf.transpose(tf.reshape(sL, [lH * lW, lC]))), l2lWeight))
-    GG = tf.add(tf.multiply(gramMatrix(tf.transpose(tf.reshape(gL, [lH * lW, lC])), tf.transpose(tf.reshape(gK, [lH * lW, lC]))), l2kWeight), tf.multiply(gramMatrix(tf.transpose(tf.reshape(gL, [lH * lW, lC])), tf.transpose(tf.reshape(gL, [lH * lW, lC]))), l2lWeight))
+    if l == 0:
+        GS = tf.multiply(gramMatrix(tf.transpose(tf.reshape(sL, [lH * lW, lC])), tf.transpose(tf.reshape(sL, [lH * lW, lC]))), l2lWeight + l2kWeight)
+        GG = tf.multiply(gramMatrix(tf.transpose(tf.reshape(gL, [lH * lW, lC])), tf.transpose(tf.reshape(gL, [lH * lW, lC]))), l2lWeight + l2kWeight)
+    else:
+        gK = tf.stack(model[layers[l - 1][0]])
+        sK = tf.stack(sess.run(model[layers[l - 1][0]]))
+        sK = tf.transpose(tf.image.resize_images(tf.transpose(sK, perm = [0, 3, 2, 1]), [lC, lW]), perm = [0, 3, 2, 1]) if tf.transpose(sL, perm = [0, 3, 2, 1]).shape != tf.transpose(sK, perm = [0, 3, 2, 1]).shape else sK
+        gK = tf.transpose(tf.image.resize_images(tf.transpose(gK, perm = [0, 3, 2, 1]), [lC, lW]), perm = [0, 3, 2, 1]) if tf.transpose(gL, perm = [0, 3, 2, 1]).shape != tf.transpose(gK, perm = [0, 3, 2, 1]).shape else gK
+        sK = tf.image.resize_images(sK, [lH, lW]) if sL.shape != sK.shape else sK
+        gK = tf.image.resize_images(gK, [lH, lW]) if gL.shape != gK.shape else gK
+        if blur == True:
+            sK = tf.stack(gaussian_filter(sK.eval(), sigma = 0.5))
+            gK = tf.stack(gaussian_filter(gK.eval(), sigma = 0.5))
+        GS = tf.add(tf.multiply(gramMatrix(tf.transpose(tf.reshape(sL, [lH * lW, lC])), tf.transpose(tf.reshape(sK, [lH * lW, lC]))), l2kWeight), tf.multiply(gramMatrix(tf.transpose(tf.reshape(sL, [lH * lW, lC])), tf.transpose(tf.reshape(sL, [lH * lW, lC]))), l2lWeight))
+        GG = tf.add(tf.multiply(gramMatrix(tf.transpose(tf.reshape(gL, [lH * lW, lC])), tf.transpose(tf.reshape(gK, [lH * lW, lC]))), l2kWeight), tf.multiply(gramMatrix(tf.transpose(tf.reshape(gL, [lH * lW, lC])), tf.transpose(tf.reshape(gL, [lH * lW, lC]))), l2lWeight))
     loss += (1 / (4 * (lC ** 2) * ((lH * lW) ** 2))) * tf.reduce_sum(tf.square(tf.subtract(GS, GG)))
     return loss
 
 def computeStyleCost(model, styleLayers, loss = 0):
-    for l in range(1, len(styleLayers)):
-        layerWeight = styleLayers[l][1]
-        loss += layerWeight * computeStyleLayerCost(l, model, styleLayers)
+    for l in range(0, len(styleLayers)): loss += styleLayers[l][1] * computeStyleLayerCost(l, model, styleLayers)
     return loss
 
 def getWeightedContentLayers(layers, output = []):

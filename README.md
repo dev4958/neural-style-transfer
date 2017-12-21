@@ -11,7 +11,7 @@ Neural style transfer implementation in TensorFlow with a couple improvements an
 
 ### Quirks
 
-* Weighs feature comparisons within the same layer, *l*, and *l* and *l - 1* differently.
+* Weighs feature comparisons within the same layer, *l*, and *l* and *l - 1* differently.  The first *l* and *l* correlation gets additional weight equal to the weight given to *l* and *l - 1* comparisons.
 * Blurs *l* and *l - 1* correlation using a gaussian blur instead of a box blur.
 * Hyperparameters...
 
