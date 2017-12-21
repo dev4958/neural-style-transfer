@@ -33,31 +33,7 @@ Content: [Man in a Forest Landscape](https://images.metmuseum.org/CRDImages/ph/o
 
 Style: [Cypresses](https://images.metmuseum.org/CRDImages/ep/original/DP130999.jpg) (Vincent van Gogh, 1889)
 
-Iterations: 1000
-
-</br>
-
-Content | Style | Output
-------- | ----- | ------
-![Medinet Habu](/readme-files/medinet-habu.jpg) | ![Rochishin Chopping Off the Head of Nio](/readme-files/rochishin-chopping-off-the-head-of-nio.jpg) | ![Medinet Habu + Rochishin Chopping Off the Head of Nio](/readme-files/medinet-habu+rochishin-chopping-off-the-head-of-nio.jpg)
-
-Content: [Medinet Habu](https://images.metmuseum.org/CRDImages/ph/original/DT1163.jpg) (John Beasley Greene, 1854)
-
-Style: [Rochishin Chopping Off the Head of Nio](https://images.metmuseum.org/CRDImages/as/original/56_121_40_162330.jpg) (School of Katsushika Hokusai, 18th-19th century)
-
-Iterations: 1000
-
-</br>
-
-Content | Style | Output
-------- | ----- | ------
-![Sentinel Rock Yosemite](/readme-files/sentinel-rock-yosemite.jpg) | ![The Beeches](/readme-files/the-beeches.jpg) | ![Sentinel Rock Yosemite + The Beeches](/readme-files/sentinel-rock-yosemite+the-beeches.jpg)
-
-Content: [Sentinel Rock, Yosemite](https://images.metmuseum.org/CRDImages/ph/original/DP152226.jpg) (attributed to Carleton E. Watkins, ca. 1872, printed ca. 1876)
-
-Style: [The Beeches](https://images.metmuseum.org/CRDImages/ap/original/DT75.jpg) (Asher Brown Durand, 1845)
-
-Iterations: 1000
+Iterations: 5000
 
 </br>
 
@@ -69,4 +45,28 @@ Content: [11:00 A.M. Monday, May 9th, 1910. Newsies at Skeeter's Branch, Jeffers
 
 Style: [Fleur de Lis](https://images.metmuseum.org/CRDImages/ap/original/DP167061.jpg) (Robert Reid, ca. 1895-1900)
 
-Iterations: 1000
+Iterations: 5000
+
+</br>
+
+Content | Style | Output
+------- | ----- | ------
+![Medinet Habu](/readme-files/medinet-habu.jpg) | ![Rochishin Chopping Off the Head of Nio](/readme-files/rochishin-chopping-off-the-head-of-nio.jpg) | ![Medinet Habu + Rochishin Chopping Off the Head of Nio](/readme-files/medinet-habu+rochishin-chopping-off-the-head-of-nio.jpg)
+
+Content: [Medinet Habu](https://images.metmuseum.org/CRDImages/ph/original/DT1163.jpg) (John Beasley Greene, 1854)
+
+Style: [Rochishin Chopping Off the Head of Nio](https://images.metmuseum.org/CRDImages/as/original/56_121_40_162330.jpg) (School of Katsushika Hokusai, 18th-19th century)
+
+Iterations: 5000
+
+</br>
+
+Content | Style | Output
+------- | ----- | ------
+![Sentinel Rock Yosemite](/readme-files/sentinel-rock-yosemite.jpg) | ![The Beeches](/readme-files/the-beeches.jpg) | ![Sentinel Rock Yosemite + The Beeches](/readme-files/sentinel-rock-yosemite+the-beeches.jpg)
+
+Content: [Sentinel Rock, Yosemite](https://images.metmuseum.org/CRDImages/ph/original/DP152226.jpg) (attributed to Carleton E. Watkins, ca. 1872, printed ca. 1876)
+
+Style: [The Beeches](https://images.metmuseum.org/CRDImages/ap/original/DT75.jpg) (Asher Brown Durand, 1845)
+
+Iterations: 5000

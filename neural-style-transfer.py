@@ -147,7 +147,7 @@ sess.run(model['input'].assign(style))
 jStyle = computeStyleCost(model, styleLayers)
 
 #Total Cost and Optimizer
-j = 10 * jContent + 1 * jStyle # (#) = alpha, (#) = beta
+j = 250 * jContent + 1 * jStyle # (#) = alpha, (#) = beta
 optimizer = tf.train.AdamOptimizer(2.0).minimize(j)
 
 def neuralStyleTransfer(sess, input, iterations = int(sys.argv[4])):
