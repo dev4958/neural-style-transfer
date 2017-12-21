@@ -41,7 +41,7 @@ Content | Style | Output
 ------- | ----- | ------
 ![Medinet Habu](/readme-files/medinet-habu.jpg) | ![Rochishin Chopping Off the Head of Nio](/readme-files/rochishin-chopping-off-the-head-of-nio.jpg) | ![Medinet Habu + Rochishin Chopping Off the Head of Nio](/readme-files/medinet-habu+rochishin-chopping-off-the-head-of-nio.jpg)
 
-Content: [Medinet-Habu](https://images.metmuseum.org/CRDImages/ph/original/DT1163.jpg) (John Beasley Greene, 1854)
+Content: [Medinet Habu](https://images.metmuseum.org/CRDImages/ph/original/DT1163.jpg) (John Beasley Greene, 1854)
 
 Style: [Rochishin Chopping Off the Head of Nio](https://images.metmuseum.org/CRDImages/as/original/56_121_40_162330.jpg) (School of Katsushika Hokusai, 18th-19th century)
 
