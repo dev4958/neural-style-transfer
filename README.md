@@ -19,7 +19,7 @@ Neural style transfer implementation in TensorFlow with a couple improvements an
 
 Download some images to work with and the pretrained [VGG-19](http://www.vlfeat.org/matconvnet/models/imagenet-vgg-verydeep-19.mat) model (save the model file in the project's root directory, don't change it's name).  Install [NumPy](https://www.scipy.org/install.html), [SciPy](https://www.scipy.org/install.html), and [TensorFlow](https://www.tensorflow.org/install/).  If possible, install the version of TensorFlow that runs on your GPU, this speeds things up considerably.  Then run the following in your terminal:
 
-$`python3 neural-style-transfer.py [content path] [style path] [width]`
+$`python3 neural-style-transfer.py [content path] [style path] [output image width] [iterations]`
 
 Generated images are saved inside the "output" directory when the process is completed.  Inside the "iterations" folder there will be generated images from every 100 iterations processed.  Inside the "setup" folder will be the resized content and style images used during processing.
 

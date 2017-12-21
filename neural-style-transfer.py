@@ -153,7 +153,7 @@ jStyle = computeStyleCost(model, styleLayers)
 j = 10 * jContent + 1 * jStyle # (#) = alpha, (#) = beta
 optimizer = tf.train.AdamOptimizer(2.0).minimize(j)
 
-def neuralStyleTransfer(sess, input, iterations = 1000):
+def neuralStyleTransfer(sess, input, iterations = int(sys.argv[4])):
     sess.run(tf.global_variables_initializer())
     output = sess.run(model['input'].assign(input))
     for i in range(iterations):
