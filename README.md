@@ -27,18 +27,6 @@ Generated images are saved inside the "output" directory when the process is com
 
 Content | Style | Output
 ------- | ----- | ------
-![Sentinel Rock Yosemite](/readme-files/sentinel-rock-yosemite.jpg) | ![The Beeches](/readme-files/the-beeches.jpg) | ![Sentinel Rock Yosemite + The Beeches](/readme-files/sentinel-rock-yosemite+the-beeches.jpg)
-
-Iterations: 1000
-
-Content: [Sentinel Rock, Yosemite](https://images.metmuseum.org/CRDImages/ph/original/DP152226.jpg) (attributed to Carleton E. Watkins, ca. 1872, printed ca. 1876)
-
-Style: [The Beeches](https://images.metmuseum.org/CRDImages/ap/original/DT75.jpg) (Asher Brown Durand, 1845)
-
-</br></br>
-
-Content | Style | Output
-------- | ----- | ------
 ![Man in a Forest Landscape](/readme-files/man-in-a-forest-landscape.jpg) | ![Cypresses](/readme-files/cypresses.jpg) | ![Man in a Forest Landscape + Cypresses](/readme-files/man-in-a-forest-landscape+cypresses.jpg)
 
 Iterations: 1000
@@ -58,6 +46,18 @@ Iterations: 1000
 Content: [Medinet-Habu](https://images.metmuseum.org/CRDImages/ph/original/DT1163.jpg) (John Beasley Greene, 1854)
 
 Style: [Rochishin Chopping Off the Head of Nio](https://images.metmuseum.org/CRDImages/as/original/56_121_40_162330.jpg) (School of Katsushika Hokusai, 18th-19th century)
+
+</br></br>
+
+Content | Style | Output
+------- | ----- | ------
+![Sentinel Rock Yosemite](/readme-files/sentinel-rock-yosemite.jpg) | ![The Beeches](/readme-files/the-beeches.jpg) | ![Sentinel Rock Yosemite + The Beeches](/readme-files/sentinel-rock-yosemite+the-beeches.jpg)
+
+Iterations: 1000
+
+Content: [Sentinel Rock, Yosemite](https://images.metmuseum.org/CRDImages/ph/original/DP152226.jpg) (attributed to Carleton E. Watkins, ca. 1872, printed ca. 1876)
+
+Style: [The Beeches](https://images.metmuseum.org/CRDImages/ap/original/DT75.jpg) (Asher Brown Durand, 1845)
 
 </br></br>
 
