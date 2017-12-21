@@ -99,3 +99,20 @@ ENV/
 
 # mypy
 .mypy_cache/
+
+# jpg files
+images
+
+# mat files
+*.mat
+
+# output
+output/*.jpg
+output/setup/*.jpg
+output/iterations/*.jpg
+
+# Environment files
+share
+include
+bin
+lib
