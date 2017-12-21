@@ -35,7 +35,7 @@ Content: [Man in a Forest Landscape](https://images.metmuseum.org/CRDImages/ph/o
 
 Style: [Cypresses](https://images.metmuseum.org/CRDImages/ep/original/DP130999.jpg) (Vincent van Gogh, 1889)
 
-</br></br>
+</br>
 
 Content | Style | Output
 ------- | ----- | ------
@@ -47,7 +47,7 @@ Content: [Medinet-Habu](https://images.metmuseum.org/CRDImages/ph/original/DT116
 
 Style: [Rochishin Chopping Off the Head of Nio](https://images.metmuseum.org/CRDImages/as/original/56_121_40_162330.jpg) (School of Katsushika Hokusai, 18th-19th century)
 
-</br></br>
+</br>
 
 Content | Style | Output
 ------- | ----- | ------
@@ -59,7 +59,7 @@ Content: [Sentinel Rock, Yosemite](https://images.metmuseum.org/CRDImages/ph/ori
 
 Style: [The Beeches](https://images.metmuseum.org/CRDImages/ap/original/DT75.jpg) (Asher Brown Durand, 1845)
 
-</br></br>
+</br>
 
 Content | Style | Output
 ------- | ----- | ------
